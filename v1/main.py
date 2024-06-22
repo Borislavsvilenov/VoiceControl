@@ -5,7 +5,7 @@ from gtts import gTTS
 from playsound import playsound
 import os
 import time
-from funcs import SearchForKeywords
+from funcs import *
 
 def main():
     frequency = 44100
