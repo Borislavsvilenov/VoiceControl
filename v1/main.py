@@ -4,6 +4,10 @@ from scipy.io.wavfile import write
 import time
 import os
 
+def SearchForKeywords(text):
+    firstWord = text.split()[0]
+    print(firstWord)
+
 frequency = 44100
 duration = 5
 
@@ -29,6 +33,4 @@ with sr.AudioFile('recording0.wav') as source:
     except:
          print('Sorry.. run again...')
 
-def SearchForKeywords(text):
-    firstWord = text.split()[0]
-    print(firstWord)
+
