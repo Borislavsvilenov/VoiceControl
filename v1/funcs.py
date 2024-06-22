@@ -12,7 +12,7 @@ def SearchForKeywords(text):
         t = time.localtime()
         currentTime = time.strftime("%H", t)
         currentTimeNumber = int(currentTime)
-        if(currentTimeNumber > 17):
+        if(currentTimeNumber > 19):
             print("Good Night")
 
 
