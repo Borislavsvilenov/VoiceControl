@@ -2,7 +2,7 @@ import speech_recognition as sr
 import sounddevice as sd
 from scipy.io.wavfile import write
 import time
-from funcs import SearchForKeywords
+from funcs import *
 
 def main():
     frequency = 44100
