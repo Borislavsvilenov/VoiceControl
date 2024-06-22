@@ -1,4 +1,4 @@
-from main import time
+import time
 from gtts import gTTS
 from playsound import playsound
 

@@ -3,6 +3,7 @@ import sounddevice as sd
 from scipy.io.wavfile import write
 from gtts import gTTS
 from playsound import playsound
+import os
 import time
 from funcs import SearchForKeywords
 
