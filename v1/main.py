@@ -8,6 +8,7 @@ def SearchForKeywords(text):
     firstWord = text.split()[0]
     print(firstWord)
 
+
 frequency = 44100
 duration = 5
 
@@ -21,16 +22,9 @@ sd.wait()
 write("recording0.wav", frequency, recording)
 
 time.sleep(0.2)
-
+    
 with sr.AudioFile('recording0.wav') as source:
     audio_text = r.listen(source)
-    try:
-        text = r.recognize_google(audio_text)
-        print(text)
-        os.remove('recording0.wav')
-        SearchForKeywords(text)
-        
-    except:
-         print('Sorry.. run again...')
-
-
+    text = r.recognize_google(audio_text)
+    print(text)
+    SearchForKeywords(text)
