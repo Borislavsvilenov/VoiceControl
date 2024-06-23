@@ -28,16 +28,16 @@ def SearchForKeywords(text):
         currentTimeNumber = int(currentTime)
         if(currentTimeNumber > 19):
             print("Good Night")
-            TextToSpeech("Good Night")
+            #TextToSpeech("Good Night")
 
 
         elif(currentTimeNumber > 11):
             print("Good Afternoon")
-            TextToSpeech("Good Afternoon")
+            #TextToSpeech("Good Afternoon")
        
         else:
             print("Good Morning")
-            TextToSpeech("Good Morning")
+            #TextToSpeech("Good Morning")
    
     elif firstWord == "open":
         differentWords = text.split()
