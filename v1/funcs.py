@@ -65,17 +65,15 @@ def SearchForKeywords(text):
         if not found:
             print(f"No item found with name: {restWords}")
 
-
+'''
 def TextToSpeech(text):
     speech = gTTS(text)
-
 
     if(os.path.exists('speech.mp3')):
         os.remove('speech.mp3')
 
-
     speech_file = 'speech.mp3'
     speech.save(speech_file)
 
-
     playsound('speech.mp3')
+'''
