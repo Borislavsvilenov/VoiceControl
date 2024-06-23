@@ -1,6 +1,6 @@
 import time
 from gtts import gTTS
-from playsound import playsound
+#from playsound import playsound
 import os
 import subprocess
 
