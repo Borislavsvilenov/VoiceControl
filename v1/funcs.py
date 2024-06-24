@@ -6,7 +6,6 @@ import subprocess
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 
-
 def get_desktop_path():
     user_profile = os.environ['USERPROFILE']
     desktop_path = os.path.join(user_profile, 'Desktop')
@@ -15,7 +14,6 @@ def get_desktop_path():
     if os.path.exists(onedrive_desktop_path):
         return onedrive_desktop_path
     return desktop_path
-
 
 def SearchForKeywords(text):
     firstWord = text.split()[0]
@@ -82,7 +80,6 @@ def SearchForKeywords(text):
         print(restWords)
         TextToSpeech(restWords)
         
-
 def TextToSpeech(text):
     mixer.init()
 
@@ -95,5 +92,3 @@ def TextToSpeech(text):
     mixer.music.play()
     while(mixer.music.get_busy()):
         time.sleep(1)
-
-
