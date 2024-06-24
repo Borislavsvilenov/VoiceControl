@@ -6,7 +6,6 @@ import subprocess
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
 
-
 def get_desktop_path():
     user_profile = os.environ['USERPROFILE']
     desktop_path = os.path.join(user_profile, 'Desktop')
@@ -27,8 +26,7 @@ def SearchForKeywords(text):
         currentTimeNumber = int(currentTime)
         if(currentTimeNumber > 19):
             print("Good Night")
-            #TextToSpeech("Good Night")
-
+            TextToSpeech("Good Night")
 
         elif(currentTimeNumber > 11):
             print("Good Afternoon")
@@ -61,7 +59,7 @@ def SearchForKeywords(text):
 
         if not found:
             print(f"No item found with name: {restWords}")
-    
+   
     elif firstWord == "search" or firstWord == "find":
         differentWords = text.split()
         restWords = ' '.join(differentWords[1:])
@@ -69,12 +67,14 @@ def SearchForKeywords(text):
         gecko_path = 'C:\\Users\\natti\\Downloads\\geckodriver-v0.34.0-win32\\geckodriver.exe'
         firefox_binary_path = 'C:\\Program Files\\Mozilla Firefox\\firefox.exe'
 
+
         service = Service(gecko_path)
         options = webdriver.FirefoxOptions()
         options.binary_location = firefox_binary_path
-    
+   
         driver = webdriver.Firefox(service=service, options=options)
         driver.get("https://www.google.com/search?client=firefox-b-d&q="+restWords)
+
 
     elif(firstWord == "say"):
         differentWords = text.split()
@@ -82,19 +82,20 @@ def SearchForKeywords(text):
 
         print(restWords)
         TextToSpeech(restWords)
-        
+       
 
 def TextToSpeech(text):
     mixer.init()
 
+
     speech = gTTS(text)
+
 
     speech_file = 'speech.mp3'
     speech.save(speech_file)
+
 
     mixer.music.load('speech.mp3')
     mixer.music.play()
     while(mixer.music.get_busy()):
         time.sleep(1)
-
-
