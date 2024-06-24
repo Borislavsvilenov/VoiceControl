@@ -6,7 +6,7 @@ from funcs import *
 
 def main():
     frequency = 44100
-    duration = 5
+    duration = 2
 
     r = sr.Recognizer()
 
