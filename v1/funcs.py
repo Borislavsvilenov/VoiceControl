@@ -21,14 +21,13 @@ def SearchForKeywords(text):
     firstWord = text.split()[0]
     print(firstWord)
 
-
     if(firstWord == "hello" or firstWord == "good" or firstWord == "hey" or firstWord == "hi"):
         t = time.localtime()
         currentTime = time.strftime("%H", t)
         currentTimeNumber = int(currentTime)
         if(currentTimeNumber > 19):
             print("Good Night")
-            TextToSpeech("Good Night")
+            #TextToSpeech("Good Night")
 
 
         elif(currentTimeNumber > 11):
@@ -46,7 +45,6 @@ def SearchForKeywords(text):
         desktop_path = get_desktop_path()
         print("Desktop path:", desktop_path)
 
-
         items = os.listdir(desktop_path)
         found = False
         for item in items:
@@ -60,7 +58,6 @@ def SearchForKeywords(text):
                     subprocess.Popen(f'explorer "{path_to_open}"')
                 found = True
                 break
-
 
         if not found:
             print(f"No item found with name: {restWords}")
