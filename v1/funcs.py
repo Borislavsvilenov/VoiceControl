@@ -1,8 +1,10 @@
 import time
 from gtts import gTTS
-from playsound import playsound
+from pygame import mixer
 import os
 import subprocess
+from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
 
 
 def get_desktop_path():
@@ -13,8 +15,6 @@ def get_desktop_path():
     if os.path.exists(onedrive_desktop_path):
         return onedrive_desktop_path
     return desktop_path
-
-
 
 
 def SearchForKeywords(text):
@@ -28,16 +28,16 @@ def SearchForKeywords(text):
         currentTimeNumber = int(currentTime)
         if(currentTimeNumber > 19):
             print("Good Night")
-            #TextToSpeech("Good Night")
+            TextToSpeech("Good Night")
 
 
         elif(currentTimeNumber > 11):
             print("Good Afternoon")
-            #TextToSpeech("Good Afternoon")
+            TextToSpeech("Good Afternoon")
        
         else:
             print("Good Morning")
-            #TextToSpeech("Good Morning")
+            TextToSpeech("Good Morning")
    
     elif firstWord == "open":
         differentWords = text.split()
@@ -64,16 +64,40 @@ def SearchForKeywords(text):
 
         if not found:
             print(f"No item found with name: {restWords}")
+    
+    elif firstWord == "search" or firstWord == "find":
+        differentWords = text.split()
+        restWords = ' '.join(differentWords[1:])
 
-'''
+        gecko_path = 'C:\\Users\\natti\\Downloads\\geckodriver-v0.34.0-win32\\geckodriver.exe'
+        firefox_binary_path = 'C:\\Program Files\\Mozilla Firefox\\firefox.exe'
+
+        service = Service(gecko_path)
+        options = webdriver.FirefoxOptions()
+        options.binary_location = firefox_binary_path
+    
+        driver = webdriver.Firefox(service=service, options=options)
+        driver.get("https://www.google.com/search?client=firefox-b-d&q="+restWords)
+
+    elif(firstWord == "say"):
+        differentWords = text.split()
+        restWords = ' '.join(differentWords[1:])
+
+        print(restWords)
+        TextToSpeech(restWords)
+        
+
 def TextToSpeech(text):
-    speech = gTTS(text)
+    mixer.init()
 
-    if(os.path.exists('speech.mp3')):
-        os.remove('speech.mp3')
+    speech = gTTS(text)
 
     speech_file = 'speech.mp3'
     speech.save(speech_file)
 
-    playsound('speech.mp3')
-'''
+    mixer.music.load('speech.mp3')
+    mixer.music.play()
+    while(mixer.music.get_busy()):
+        time.sleep(1)
+
+
