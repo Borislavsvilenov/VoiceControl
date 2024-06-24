@@ -1,6 +1,6 @@
 .vscode
 .DS_Store
-.wav
+lastRecord.wav
 build/
 node_modules/
 __pycache__/
