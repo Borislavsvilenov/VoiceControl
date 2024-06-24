@@ -6,7 +6,7 @@ from funcs import *
 
 def main():
     frequency = 44100
-    duration = 5
+    duration = 2
 
     r = sr.Recognizer()
 
@@ -18,10 +18,15 @@ def main():
     time.sleep(0.2)
    
     with sr.AudioFile('lastRecord.wav') as source:
-        audio_text = r.listen(source)
-        text = r.recognize_google(audio_text)
-        print(text)
-        SearchForKeywords(text)
+        try:
+            audio_text = r.listen(source)
+            text = r.recognize_google(audio_text)
+            print(text)
+            SearchForKeywords(text)
+        except sr.UnknownValueError:
+            print("Couldn't understand audio")
+        except:
+            print("Something went wrong")
 
 if __name__ == '__main__':
     main()

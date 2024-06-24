@@ -15,7 +15,6 @@ def get_desktop_path():
         return onedrive_desktop_path
     return desktop_path
 
-
 def SearchForKeywords(text):
     firstWord = text.split()[0]
     print(firstWord)
@@ -26,6 +25,7 @@ def SearchForKeywords(text):
         currentTimeNumber = int(currentTime)
         if(currentTimeNumber > 19):
             print("Good Night")
+            TextToSpeech("Good Night")
             TextToSpeech("Good Night")
 
         elif(currentTimeNumber > 11):
