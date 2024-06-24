@@ -1,6 +1,7 @@
 .vscode
 .DS_Store
 lastRecord.wav
+speech.mp3
 build/
 node_modules/
 __pycache__/
