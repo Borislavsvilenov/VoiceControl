@@ -5,6 +5,7 @@ import os
 import subprocess
 from selenium import webdriver
 from selenium.webdriver.firefox.service import Service
+import ctypes
 
 def get_desktop_path():
     user_profile = os.environ['USERPROFILE']
@@ -82,7 +83,12 @@ def SearchForKeywords(text):
 
         print(restWords)
         TextToSpeech(restWords)
-       
+    
+    elif(firstWord == "close"):
+        user32 = ctypes.windll.user32
+        current_window = user32.GetForegroundWindow()
+        lastHiddenWindow = current_window
+        user32.ShowWindow(current_window, 0)
 
 def TextToSpeech(text):
     mixer.init()
